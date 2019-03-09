@@ -1,34 +1,49 @@
 <?php
 
-
+/**
+ * Return the HTML for email link adress
+ *
+ * @param array $args Arguments for the HTML building
+ * @return string HTML of encoded link
+ */
 function get_html( $args = array() ) {
 
-	$charset = '+-.0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
+	$charset = '?_+-.@0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 	$key     = str_shuffle( $charset );
 	$id      = 'es-' . rand( 1, 99999999 );
 
-	// Check mail
+	/* Check email address */
 	if ( empty( $args['email'] ) ) {
 		return '';
 	} elseif ( ! filter_var( $args['email'], FILTER_VALIDATE_EMAIL ) ) {
-		return ' [ Invalid email address : ' . $args['email'] . ' ] ';
+		$message = __( 'Invalid email address', 'encode-shortcode' );
+		return ' [ ' . $message . ' : ' . $args['email'] . ' ] ';
 	}
 
 	$encoded_email = get_encoded_text( $args['email'], $key, $charset );
 	$js            = get_js( $id, $key, $encoded_email );
 
-	$html_container = '<span id="' . $id . '">[Encoded]</span>';
+	$html_container = '<span id="' . $id . '">' . __( '[Encoded]', 'encode-shortcode' ) . '</span>';
 	$html_script    = '<script type="text/javascript">' . $js . '</script>';
 
 	return $html_container . $html_script;
 }
 
 
+/**
+ * Get encoded content
+ *
+ * @param string $email
+ * @param string $key
+ * @param string $charset
+ * @return string
+ */
 function get_encoded_text( $email, $key, $charset ) {
 
 	$encoded_email = '';
 
-	for ( $i = 0; $i < strlen( $email ); $i += 1 ) {
+	for ( $i = 0; $i < strlen( $email ); $i++ ) {
+
 		$encoded_email .= $key[ strpos( $charset, $email[ $i ] ) ];
 	}
 
@@ -36,6 +51,14 @@ function get_encoded_text( $email, $key, $charset ) {
 }
 
 
+/**
+ * Get the JavaScript for decode data and insert the HTML link
+ *
+ * @param string $id ID fo the HTML container
+ * @param string $key Encoding key
+ * @param string $encoded_email Encoded email
+ * @return string JavaScript code
+ */
 function get_js( $id, $key, $encoded_email ) {
 
 	$html_link = '<a href=\\"mailto:"+d+"\\">"+d+"</a>';
