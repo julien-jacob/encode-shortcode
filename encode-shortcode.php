@@ -16,19 +16,10 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-function encode_shortcode_get_default_arg() {
-	return array(
-		'email' => '',
-		// 'class' => '',
-		// 'content' => '',
-		// 'container' => 'span',
-		// 'container_class' => '',
-	);
-}
-
 
 // Call php file
-require plugin_dir_path( __FILE__ ) . 'encode.php';
+require plugin_dir_path( __FILE__ ) . 'includes/default-args.php';
+require plugin_dir_path( __FILE__ ) . 'includes/encode.php';
 
 
 /**
@@ -46,7 +37,7 @@ function encode_shortcode_shortcode( $atts, $content = null ) {
 		'encode'
 	);
 
-	return get_html($atts );
+	return get_html( $atts );
 
 }
 add_shortcode( apply_filters( 'encode-shortcode/tag', 'encode' ), 'encode_shortcode_shortcode' );
