@@ -6,7 +6,7 @@
  * @param array $args Arguments for the HTML building
  * @return string HTML of encoded link
  */
-function get_html( $args = array() ) {
+function encode_shortcode_get_html( $args = array() ) {
 
 	$charset = '+-.0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
 	$key     = str_shuffle( $charset );
@@ -20,8 +20,8 @@ function get_html( $args = array() ) {
 		return ' [ ' . $message . ' : ' . $args['email'] . ' ] ';
 	}
 
-	$encoded_email = get_encoded_text( $args['email'], $key, $charset );
-	$js            = get_js( $id, $key, $encoded_email, $args['content'] );
+	$encoded_email = encode_shortcode_get_encoded_text( $args['email'], $key, $charset );
+	$js            = encode_shortcode_get_js( $id, $key, $encoded_email, $args['content'] );
 
 	$html_container = '<span id="' . $id . '">' . __( '[Encoded]', 'encode-shortcode' ) . '</span>';
 	$html_script    = '<script type="text/javascript">' . $js . '</script>';
@@ -38,7 +38,7 @@ function get_html( $args = array() ) {
  * @param string $charset
  * @return string
  */
-function get_encoded_text( $email, $key, $charset ) {
+function encode_shortcode_get_encoded_text( $email, $key, $charset ) {
 
 	$encoded_email = '';
 
@@ -59,7 +59,7 @@ function get_encoded_text( $email, $key, $charset ) {
  * @param string $encoded_email Encoded email
  * @return string JavaScript code
  */
-function get_js( $id, $key, $encoded_email, $link_text ) {
+function encode_shortcode_get_js( $id, $key, $encoded_email, $link_text ) {
 
 	/* Check link text content */
 	if ( empty( $link_text ) ) {
@@ -78,7 +78,7 @@ for(var e=0;e<c.length;e++)
 document.getElementById("$id").innerHTML="$html_link"
 EOT;
 
-	return minify_js( $js );
+	return encode_shortcode_minify_js( $js );
 }
 
 
@@ -88,7 +88,7 @@ EOT;
  * @param string $js JavaScript code
  * @return string Minified JavaScript code
  */
-function minify_js( $js ) {
+function encode_shortcode_minify_js( $js ) {
 
 	$search = array(
 		"/\r|\n/",
