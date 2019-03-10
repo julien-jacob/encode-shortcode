@@ -1,6 +1,6 @@
-![WordPress plugin: Encode Shortcode](https://raw.githubusercontent.com/julien-jacob/encode-shortcode/master/assets/banner-772x250.jpg)
+![WordPress plugin: Encode Shortcode](https://raw.githubusercontent.com/julien-jacob/encode-shortcode/master/assets/banner-banner-1544x500.jpg)
 
-# 💌 WordPress plugin: Encode Shortcode
+# 💌 WordPress plugin - Encode Shortcode
 
 A WordPress plugin to protect the email address in your website against bots or spiders that index or harvest email addresses for sending spam. It uses a substitution cipher with a different key for every page load.
 
