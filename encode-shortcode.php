@@ -25,8 +25,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/encode.php';
 /**
  * Add Shortcode [encode][/encode]
  *
- * @param array  $atts Attributes in the shortcode 
- * @param string $content Text content in the link 
+ * @param array  $atts Attributes in the shortcode
+ * @param string $content Text content in the link
  * @return string
  */
 function encode_shortcode_shortcode( $atts, $content = null ) {
@@ -36,6 +36,8 @@ function encode_shortcode_shortcode( $atts, $content = null ) {
 		$atts,
 		'encode'
 	);
+
+	$atts['content'] = $content;
 
 	return get_html( $atts );
 
