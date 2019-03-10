@@ -23,4 +23,4 @@ The result for the user is like :
 
 Classic method :
 
-    <?php echo do_shortcode('[encode email="email@mail.fr"]Text in the link[/encode]'); ?>
+    <?php echo do_shortcode( '[encode email="email@mail.fr"]Text in the link[/encode]' ); ?>
