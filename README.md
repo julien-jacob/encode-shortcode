@@ -1,4 +1,4 @@
-![WordPress plugin: Encode Shortcode](https://raw.githubusercontent.com/julien-jacob/encode-shortcode/master/assets/banner-banner-1544x500.jpg)
+![WordPress plugin: Encode Shortcode](https://raw.githubusercontent.com/julien-jacob/encode-shortcode/master/assets/banner-1544x500.jpg)
 
 # 💌 WordPress plugin - Encode Shortcode
 
