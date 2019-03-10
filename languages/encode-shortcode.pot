@@ -1,0 +1,46 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Encode Shortcode\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-10 00:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.1; wp-5.1"
+
+#: includes/encode.php:26
+msgid "[Encoded]"
+msgstr ""
+
+#. Name of the plugin
+msgid "Encode Shortcode"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://wprock.fr"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wprock.fr/a-propos-julien-ma-jacob/"
+msgstr ""
+
+#: includes/encode.php:19
+msgid "Invalid email address"
+msgstr ""
+
+#. Author of the plugin
+msgid "Julien MA Jacob"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Protect email address in your website against spam with shortcode like this :"
+" [encode email=\"hello@mail.fr\"]My text to encode[/encode]"
+msgstr ""

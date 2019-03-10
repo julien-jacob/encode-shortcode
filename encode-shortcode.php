@@ -2,10 +2,10 @@
 
 /**
  * Plugin Name: Encode Shortcode
- * Description: Shortcode for encode and protect data (like email adress or phone number) from bot and spam. [encode]My text to encode[/encode]
+ * Description: Protect email address in your website against spam with shortcode like this : [encode email="hello@mail.fr"]My text to encode[/encode]
  * Author: Julien MA Jacob
  * Plugin URI: https://wprock.fr
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author URI: https://wprock.fr/a-propos-julien-ma-jacob/
  * Text Domain: encode-shortcode
  * Domain Path: /languages
@@ -16,26 +16,17 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-function encode_shortcode_get_default_arg() {
-	return array(
-		'email' => '',
-		// 'class' => '',
-		// 'content' => '',
-		// 'container' => 'span',
-		// 'container_class' => '',
-	);
-}
-
 
 // Call php file
-require plugin_dir_path( __FILE__ ) . 'encode.php';
+require plugin_dir_path( __FILE__ ) . 'includes/default-args.php';
+require plugin_dir_path( __FILE__ ) . 'includes/encode.php';
 
 
 /**
  * Add Shortcode [encode][/encode]
  *
- * @param array  $atts
- * @param string $content
+ * @param array  $atts Attributes in the shortcode
+ * @param string $content Text content in the link
  * @return string
  */
 function encode_shortcode_shortcode( $atts, $content = null ) {
@@ -46,7 +37,9 @@ function encode_shortcode_shortcode( $atts, $content = null ) {
 		'encode'
 	);
 
-	return get_html($atts );
+	$atts['content'] = $content;
+
+	return get_html( $atts );
 
 }
 add_shortcode( apply_filters( 'encode-shortcode/tag', 'encode' ), 'encode_shortcode_shortcode' );
