@@ -34,6 +34,10 @@ Classic method :
 
 `<?php echo do_shortcode('[encode email="email@mail.fr"]Text in the link[/encode]'); ?>`
 
+**Ressourses**
+
+* (https://github.com/julien-jacob/encode-shortcode "Github repository")
+
 == Changelog ==
 
 = 1.0.1 =
