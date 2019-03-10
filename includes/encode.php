@@ -21,7 +21,7 @@ function get_html( $args = array() ) {
 	}
 
 	$encoded_email = get_encoded_text( $args['email'], $key, $charset );
-	$js            = get_js( $id, $key, $encoded_email );
+	$js            = get_js( $id, $key, $encoded_email, $args['content'] );
 
 	$html_container = '<span id="' . $id . '">' . __( '[Encoded]', 'encode-shortcode' ) . '</span>';
 	$html_script    = '<script type="text/javascript">' . $js . '</script>';
@@ -59,9 +59,14 @@ function get_encoded_text( $email, $key, $charset ) {
  * @param string $encoded_email Encoded email
  * @return string JavaScript code
  */
-function get_js( $id, $key, $encoded_email ) {
+function get_js( $id, $key, $encoded_email, $link_text ) {
 
-	$html_link = '<a href=\\"mailto:"+d+"\\">"+d+"</a>';
+	/* Check link text content */
+	if ( empty( $link_text ) ) {
+		$html_link = '<a href=\\"mailto:"+d+"\\">"+d+"</a>';
+	} else {
+		$html_link = '<a href=\\"mailto:"+d+"\\">' . esc_html( $link_text ) . '</a>';
+	}
 
 	$js = <<<EOT
 var a="$key";
