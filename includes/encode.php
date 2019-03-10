@@ -8,10 +8,6 @@
  */
 function encode_shortcode_get_html( $args = array() ) {
 
-	$charset = '+-.0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
-	$key     = str_shuffle( $charset );
-	$id      = 'es-' . rand( 1, 99999999 );
-
 	/* Check email address */
 	if ( empty( $args['email'] ) ) {
 		return '';
@@ -19,6 +15,10 @@ function encode_shortcode_get_html( $args = array() ) {
 		$message = __( 'Invalid email address', 'encode-shortcode' );
 		return ' [ ' . $message . ' : ' . $args['email'] . ' ] ';
 	}
+
+	$charset = '+-.0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
+	$key     = str_shuffle( $charset );
+	$id      = 'es-' . rand( 1, 99999999 );
 
 	$encoded_email = encode_shortcode_get_encoded_text( $args['email'], $key, $charset );
 	$js            = encode_shortcode_get_js( $id, $key, $encoded_email, $args['content'] );
