@@ -5,7 +5,7 @@
  * Description: Protect email address in your website against spam with shortcode like this : [encode email="hello@mail.fr"]My text to encode[/encode]
  * Author: Julien MA Jacob
  * Plugin URI: https://wprock.fr
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author URI: https://wprock.fr/a-propos-julien-ma-jacob/
  * Text Domain: encode-shortcode
  * Domain Path: /languages

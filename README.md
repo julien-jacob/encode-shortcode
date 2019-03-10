@@ -1,9 +1,10 @@
+![WordPress plugin : Encode Shortcode](https://raw.githubusercontent.com/julien-jacob/encode-shortcode/master/assets/banner-772x250.jpg)
+
 # WordPress plugin : Encode Shortcode
 
 A WordPress plugin to protect the email address in your website against bots or spiders that index or harvest email addresses for sending spam. It uses a substitution cipher with a different key for every page load.
-S
 
-## How to use in the WordPress editor
+# How to use in the WordPress editor
 
     [encode email="email@mail.fr"]
 
@@ -19,7 +20,7 @@ The result for the user is like :
 
     <span id="es-24377098"><a href="mailto:email@mail.fr">Text in the link</a></span>
 
-## How to use in PHP
+# How to use in PHP
 
 Classic method :
 

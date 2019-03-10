@@ -43,6 +43,9 @@ Classic method :
 = 1.0.1 =
 * Add README.txt for prepare submit to WordPress plugins 
 * Better README.md 
+* Add assets (banner and icon)
+* Add french translation
+* Add support shortcode : [encode email="hello@mail.fr"]Link text[/encode]
 
 = 1.0.0 =
 * First version of the plugin (github)
