@@ -5,7 +5,7 @@
  * Description: Protect email address in your website against spam with shortcode like this : [encode email="hello@mail.fr"]My text to encode[/encode]
  * Author: Julien MA Jacob
  * Plugin URI: https://wprock.fr
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author URI: https://wprock.fr/a-propos-julien-ma-jacob/
  * Text Domain: encode-shortcode
  * Domain Path: /languages
@@ -29,7 +29,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/encode.php';
  * @param string $content Text content in the link
  * @return string
  */
-function encode_shortcode_shortcode( $atts, $content = null ) {
+function encode_shortcode_add_shortcode( $atts, $content = null ) {
 
 	$atts = shortcode_atts(
 		encode_shortcode_get_default_arg(),
@@ -39,7 +39,7 @@ function encode_shortcode_shortcode( $atts, $content = null ) {
 
 	$atts['content'] = $content;
 
-	return get_html( $atts );
+	return encode_shortcode_get_html( $atts );
 
 }
-add_shortcode( apply_filters( 'encode-shortcode/tag', 'encode' ), 'encode_shortcode_shortcode' );
+add_shortcode( apply_filters( 'encode-shortcode/tag', 'encode' ), 'encode_shortcode_add_shortcode' );
