@@ -8,7 +8,7 @@
  */
 function get_html( $args = array() ) {
 
-	$charset = '?_+-.@0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+	$charset = '+-.0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
 	$key     = str_shuffle( $charset );
 	$id      = 'es-' . rand( 1, 99999999 );
 
